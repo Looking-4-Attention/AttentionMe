@@ -8,6 +8,7 @@ def adjustBrightness(image_path, output_path="adjustBrightness_image.png", brigh
 
     #Adjust background brightness
     background_mask = background_mask[:,:, np.newaxis]
+    background_mask=(background_mask>0.5).astype(np.uint8)
     adjusted_background = image * background_mask * brightness_factor
 
     #merge background
