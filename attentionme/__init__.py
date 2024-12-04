@@ -1,3 +1,3 @@
-from .segmentation import segment_person
+from .pointing import add_pointed_person
 
-__all__ = ["segment_person"]
+__all__ = ["add_pointed_person"]
