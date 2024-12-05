@@ -1,7 +1,8 @@
-import cv2
 import numpy as np
-from torchvision import models
+import threading
+import cv2
 import torch
+from torchvision import models
 from torchvision.transforms import functional as F
 
 # Load pretrained model for segmentation
@@ -15,7 +16,6 @@ def segment_person(image_path):
 
     Args:
         image_path (str): Path to the input image.
-        person_index (int): Index of the person to isolate.
 
     Returns:
         person_mask (numpy.ndarray): Binary mask of the selected person.
@@ -35,12 +35,53 @@ def segment_person(image_path):
     labels = outputs[0]['labels']
     scores = outputs[0]['scores']
     masks = outputs[0]['masks']
-    person_boxes = [outputs[0]['boxes'][i].cpu().numpy() for i in range(len(labels)) if labels[i] == 1 and scores[i] > 0.65]
-    person_masks = [masks[i, 0].cpu().numpy() for i in range(len(labels)) if labels[i] == 1]
+    person_boxes = [outputs[0]['boxes'][i].cpu().numpy() for i in range(len(labels)) if labels[i] == 1 and scores[i] > 0.7]
+    person_masks = [masks[i, 0].cpu().numpy() for i in range(len(labels)) if labels[i] == 1 and scores[i] > 0.7]
 
     if not person_masks:
         raise ValueError("No persons detected in the image.")
 
+    # Draw bounding boxes and labels on the image
+    image_with_boxes = image.copy()
+    for i, box in enumerate(person_boxes):
+        x1, y1, x2, y2 = map(int, box)
+        # Draw rectangle for each detected person
+        cv2.rectangle(image_with_boxes, (x1, y1), (x2, y2), (127, 255, 127), 2)
+        # Put person index text
+        cv2.putText(
+            image_with_boxes,
+            f"Person {i}",
+            (x1, y1 + 10),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.5,
+            (127, 255, 127),
+            2
+        )
+
+    # Function to capture console input
+    def show_image():
+        nonlocal person_index
+        nonlocal image_with_boxes
+
+        # Display the image with bounding boxes
+        cv2.imshow("Detected Persons", image_with_boxes)
+
+        # Event loop to display the image and handle window close
+        while True:
+            key = cv2.waitKey(1) & 0xFF  # Non-blocking wait
+
+            # Break if input is received
+            if person_index is not None:
+                break
+
+        cv2.destroyAllWindows()
+
+    # Start input thread
+    person_index = None
+    show_image_thread = threading.Thread(target=show_image)
+    show_image_thread.start()
+
+    # Ask the user to select a person
     print("\n=== Detected Persons ===")
     for i, box in enumerate(person_boxes):
         x1, y1, x2, y2 = map(int, box)
@@ -48,7 +89,8 @@ def segment_person(image_path):
 
     person_index = int(input("Enter the number of the person you want to process: "))
 
-    if person_index < 0 or person_index >= len(person_masks):
+    # Validate the input
+    if not (0 <= person_index < len(person_masks)):
         raise ValueError(f"Invalid person index: {person_index}. Please select between 0 and {len(person_masks) - 1}.")
 
     # Select the specified person
