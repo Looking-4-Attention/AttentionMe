@@ -18,7 +18,7 @@ def add_pointed_person(image_path, output_path="pointed_image_path.png", arrow_t
     cv2.arrowedLine(image, arrow_start, arrow_end, arrow_color, arrow_thickness, tipLength=0.05)
 
     cv2.imwrite(output_path, image)
-    print(f"이미지가 {output_path}에 저장되었습니다.")
+    print(f"Pointed image saved as {output_path}")
 
 if __name__ == "__main__":
     image_path = "image_path.png"
