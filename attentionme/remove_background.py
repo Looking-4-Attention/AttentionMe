@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
-from segmentation import segment_person
+from .segmentation import segment_person
+
 
 def remove_background(image_path, output_path="output_no_background.png"):
     """
@@ -28,12 +29,3 @@ def remove_background(image_path, output_path="output_no_background.png"):
     # Save the resulting image as a PNG with transparency
     cv2.imwrite(output_path, image)
     print(f"Image with removed background saved as {output_path}")
-
-if __name__ == "__main__":
-    image_path = "input.jpg"  # Replace with your input image path
-    output_path = "output_no_background.png"  # Replace with your desired output path
-
-    try:
-        remove_background(image_path, output_path)
-    except ValueError as e:
-        print(f"Error: {e}")

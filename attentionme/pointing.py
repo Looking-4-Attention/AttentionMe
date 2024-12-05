@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from .segmentation import segment_person
 
+
 def add_pointed_person(image_path, output_path="pointed_image_path.png", arrow_thickness=3, arrow_color=(0, 0, 255)):
     person_mask, _ = segment_person(image_path)
     image = cv2.imread(image_path)
@@ -19,7 +20,3 @@ def add_pointed_person(image_path, output_path="pointed_image_path.png", arrow_t
 
     cv2.imwrite(output_path, image)
     print(f"Pointed image saved as {output_path}")
-
-if __name__ == "__main__":
-    image_path = "image_path.png"
-    add_pointed_person(image_path, arrow_thickness=5, arrow_color=(0, 255, 0))

@@ -1,9 +1,6 @@
 import cv2
 import numpy as np
 from .segmentation import segment_person
-import cv2
-import numpy as np
-from .segmentation import segment_person
 
 
 def enlargement(image_path, output_path="enlarged_image.png", scale=2):

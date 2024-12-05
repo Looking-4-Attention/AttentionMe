@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from .segmentation import segment_person
 
+
 def crop(image_path, output_path="cropped_person.png"):
     person_mask, _ = segment_person(image_path)
     image = cv2.imread(image_path)
