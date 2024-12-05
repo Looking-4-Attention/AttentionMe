@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from .segmentation import segment_person
 
-def add_pointed_person(image_path, output_path="C:\\Users\\nhcho\\Downloads\\pointed.png"):
+def add_pointed_person(image_path, output_path="pointed_image_path.png"):
     person_mask, _ = segment_person(image_path)
     image = cv2.imread(image_path)
 
@@ -21,5 +21,5 @@ def add_pointed_person(image_path, output_path="C:\\Users\\nhcho\\Downloads\\poi
     print(f"이미지가 {output_path}에 저장되었습니다.")
 
 if __name__ == "__main__":
-    image_path = "C:\\Users\\nhcho\\Downloads\\71086_220513_3029.png"
+    image_path = "image_path.png"
     add_pointed_person(image_path)
