@@ -33,8 +33,9 @@ def segment_person(image_path):
         outputs = model(image_tensor)
 
     labels = outputs[0]['labels']
+    scores = outputs[0]['scores']
     masks = outputs[0]['masks']
-    person_boxes = [outputs[0]['boxes'][i].cpu().numpy() for i in range(len(labels)) if labels[i] == 1]
+    person_boxes = [outputs[0]['boxes'][i].cpu().numpy() for i in range(len(labels)) if labels[i] == 1 and scores[i] > 0.65]
     person_masks = [masks[i, 0].cpu().numpy() for i in range(len(labels)) if labels[i] == 1]
 
     if not person_masks:
