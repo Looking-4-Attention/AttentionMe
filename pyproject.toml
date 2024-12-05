@@ -1,0 +1,20 @@
+[project]
+name = "attentionme"
+version = "0.1.0"
+authors = [
+  { name = "Aenoc Woo", email = "wwwwje2008@gmail.com" },
+  { name = "Dami Lee", email = "daming@hanyang.ac.kr"},
+  { name = "Namhoon Cho", email = "lovin6109@gmail.com"},
+  { name = "Hyunsoo Kim", email = "hyun12278@hangang.ac.kr"}
+]
+description = "A library for person-focused image processing"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/Looking-4-Attention/AttentionMe"
+Issues = "https://github.com/Looking-4-Attention/AttentionMe/issues"
