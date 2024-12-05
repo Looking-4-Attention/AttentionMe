@@ -5,10 +5,6 @@ import torch
 from torchvision import models
 from torchvision.transforms import functional as F
 
-# Load pretrained model for segmentation
-model = models.detection.maskrcnn_resnet50_fpn(pretrained=True)
-model.eval()
-
 
 def segment_person(image_path):
     """
@@ -21,6 +17,9 @@ def segment_person(image_path):
         person_mask (numpy.ndarray): Binary mask of the selected person.
         background_mask (numpy.ndarray): Binary mask of everything except the person.
     """
+    # Load pretrained model for segmentation
+    model = models.detection.maskrcnn_resnet50_fpn(pretrained=True)
+    model.eval()
 
     # Load image
     image = cv2.imread(image_path)
@@ -41,24 +40,29 @@ def segment_person(image_path):
     if not person_masks:
         raise ValueError("No persons detected in the image.")
 
+    # Generate random colors for each detected person
+    rng = np.random.default_rng()
+    colors = rng.integers(64, 256, size=(len(person_boxes), 3), dtype=np.uint8)
+
     # Draw bounding boxes and labels on the image
     image_with_boxes = image.copy()
-    for i, box in enumerate(person_boxes):
+    for i, (box, color) in enumerate(zip(person_boxes, colors)):
         x1, y1, x2, y2 = map(int, box)
+        color = tuple(map(int, color))  # Convert to tuple for OpenCV
         # Draw rectangle for each detected person
-        cv2.rectangle(image_with_boxes, (x1, y1), (x2, y2), (127, 255, 127), 2)
+        cv2.rectangle(image_with_boxes, (x1, y1), (x2, y2), color, 2)
         # Put person index text
         cv2.putText(
             image_with_boxes,
             f"Person {i}",
-            (x1, y1 + 10),
+            (x1 + 5, y1 + 20),
             cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
-            (127, 255, 127),
+            0.75,
+            color,
             2
         )
 
-    # Function to capture console input
+    # Function to show captured object
     def show_image():
         nonlocal person_index
         nonlocal image_with_boxes
