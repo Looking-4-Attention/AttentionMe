@@ -30,10 +30,9 @@ Have you ever felt the urge to be the center of attention? Just like the lyrics 
 
 With AttentionMe, you can make that a reality. The library focuses on preprocessing videos and images to enhance the user’s presence. It provides tools for:
 
-- People segmentation
 - Background removal
-- Dynamic zooming
-- Highlighting specific subjects
+- Zoom In
+- etc.
 
 Keep that in mind, this project was developed to promote teamwork and deepen our understanding of **open source software** development practices by the undergraduate students.
 
@@ -143,10 +142,9 @@ AttentionMe는 2024년 2학기 한양대학교 에리카캠퍼스의 오픈소�
 
 **AttentionMe**와 함께라면 그 소망이 현실이 될 수 있습니다. 이 라이브러리는 영상과 이미지의 사전 처리(preprocessing)를 통해 사용자의 존재감을 극대화합니다. 제공하는 주요 기능은 다음과 같습니다:
 
-- 사람 분리 (People segmentation)  
 - 배경 제거 (Background removal)  
 - 줌 인 (Dynamic zooming)  
-- 대상 강조  
+- 기타 등등
 
 기억하실 사항: 이 프로젝트는 팀워크를 증진하고 **오픈 소스 소프트웨어** 개발 실습과 협업 경험을 쌓기 위해 대학생들에 의해 개발되었습니다.
 
