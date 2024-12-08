@@ -51,7 +51,7 @@ Keep that in mind, this project was developed to promote teamwork and deepen our
 
 Before you begin, ensure you have the following installed:
 - Python 3.8 or higher
-- Required libraries like `Pillow`, `NumPy`, and `OpenCV`
+- Required libraries like `PyTorch`, `NumPy`, and `OpenCV`
 
 ### Steps
 
@@ -65,15 +65,13 @@ You can install AttentionMe from PyPI:
 ## Usage
 
 Here’s a simple example to get started with the background removal feature. For your inforamtion, there is a Sample Usage repository in this organization.:
-```bash
+```python
 from attentionme import *
-import cv2
 
 image_path = 'sample_images/group1.jpg'
-image = cv2.imread(image_path)
-cv2.imwrite('image_outputs/original_image.png', image)
+output_path = 'image_outputs/removed_background_image.png'
 
-remove_background(image_path, 'image_outputs/removed_background_image.png')
+remove_background(image_path, output_path)
 ```
 
 ---
@@ -88,7 +86,7 @@ remove_background(image_path, 'image_outputs/removed_background_image.png')
 -   **`pointing.py`**: Adds arrows or markers next to individuals in images or videos for highliting.
 -   **`enlargement.py`**: Allows users to zoom into specific parts of an image to examine fine details.
 
-  --
+---
 
 ## Maintainer
 
@@ -161,7 +159,7 @@ AttentionMe는 2024년 2학기 한양대학교 에리카캠퍼스의 오픈소�
 
 작업을 시작하기 전에 다음 사항이 설치되어 있어야 합니다:  
 - Python 3.8 이상  
-- `Pillow`, `NumPy`, `OpenCV`와 같은 필수 라이브러리  
+- `PyTorch`, `NumPy`, `OpenCV`와 같은 필수 라이브러리  
 
 ### 설치 단계
 
@@ -169,24 +167,22 @@ PyPI에서 AttentionMe를 설치하실 수 있습니다.:
    ```bash
    pip install attentionme
    ```
-   
-   ---
+
+---
 
 ## 사용법
 
 아래는 간단한 예제입니다. 더 자세한 사항은 저희 Organization 내 Sample Usage repository를 참고하시기 바랍니다. 아래는 배경 제거 기능을 시작하는 코드입니다:
-```bash
+```python
 from attentionme import *
-import cv2
 
 image_path = 'sample_images/group1.jpg'
-image = cv2.imread(image_path)
-cv2.imwrite('image_outputs/original_image.png', image)
+output_path = 'image_outputs/removed_background_image.png'
 
-remove_background(image_path, 'image_outputs/removed_background_image.png')
+remove_background(image_path, output_path)
 ```
 
-   ---
+---
 
 ## 모듈 개요
 
@@ -198,7 +194,7 @@ remove_background(image_path, 'image_outputs/removed_background_image.png')
 -   **`pointing.py`**: 이미지나 영상에서 사람 옆에 화살표를 붙여 강조합니다.
 -   **`enlargement.py`**: 이미지의 특정 부분을 확대하여 세부 사항을 확인할 수 있습니다.
 
-   ---
+---
 
 ## 유지보수자
 
@@ -208,11 +204,11 @@ remove_background(image_path, 'image_outputs/removed_background_image.png')
 
 궁금한 점이나 의견이 있다면 언제든지 연락해 주세요.
 
-   ---
+---
 
 ## 기여
 
-_Looking 4 Attention_의 팀원이자 메인 Contributor들:
+*Looking 4 Attention*의 팀원이자 메인 Contributor들:
 
 -   [Namhoon Cho](https://github.com/Namhoon-Cho)
 -   [Dami Lee](https://github.com/iamdami)
@@ -226,7 +222,7 @@ _Looking 4 Attention_의 팀원이자 메인 Contributor들:
 4.  브랜치를 푸시합니다: `git push origin feature/your-feature-name`.
 5.  풀 리퀘스트를 제출합니다.
 
-   ---
+---
 
 ## 라이선스
 

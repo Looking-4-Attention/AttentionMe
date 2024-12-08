@@ -8,7 +8,7 @@
 
 project = 'AttentionMe'
 copyright = '2024, Looking-4-Attention'
-author = 'Looking-4-Attention'
+author = 'Aenoc Woo, Dami Lee, Namhoon Cho, Hyunsoo Kim'
 release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
@@ -19,10 +19,15 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'myst_parser',
 ]
-
+source_suffix = ['.rst', '.md']
+master_doc = 'index'
 templates_path = ['_templates']
 exclude_patterns = []
+language = 'en'
+locale_dirs = ['locale']
+
 
 import os
 import sys
