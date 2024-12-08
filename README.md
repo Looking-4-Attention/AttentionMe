@@ -1,4 +1,4 @@
-# AttentionMe: Effects Library for Attention Seekers(부제 부분)
+# AttentionMe: Effects Library for Attention Seekers
 
 [![standard-readme compliant](https://img.shields.io/badge/python%20library-Open%20Source-skyblue.svg?style=flat-square)](https://github.com/Looking-4-Attention/AttentionMe)
 
@@ -113,7 +113,7 @@ final_image.save("output.jpg")
 
 This project is maintained by the leader of the team _Looking 4 Attention_:
 
--   [Aenok Woo](https://github.com/wwwwje2008)
+-   [Aenoc Woo](https://github.com/wwwwje2008)
 
 Feel free to reach out if you have questions or suggestions.
 
@@ -238,7 +238,7 @@ final_image.save("output.jpg")
 
 이 프로젝트는 _Looking 4 Attention_ 팀장에 의해 유지보수되고 있습니다:
 
--   [Aenok Woo](https://github.com/wwwwje2008)
+-   [Aenoc Woo](https://github.com/wwwwje2008)
 
 궁금한 점이나 의견이 있다면 언제든지 연락해 주세요.
 
