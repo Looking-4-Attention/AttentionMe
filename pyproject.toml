@@ -1,6 +1,6 @@
 [project]
 name = "attentionme"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name = "Aenoc Woo", email = "wwwwje2008@gmail.com" },
   { name = "Dami Lee", email = "daming@hanyang.ac.kr"},
@@ -9,6 +9,8 @@ authors = [
 ]
 description = "A library for person-focused image processing"
 readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
