@@ -16,7 +16,7 @@ Whether you're looking to highlight yourself in a video or create a professional
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Modules Overview](#modules-overview)
+- [Modules](#modules)
 - [Maintainer](#maintainer)
 - [Contributing](#contributing)
 - [License](#license)
@@ -78,7 +78,7 @@ remove_background(image_path, 'image_outputs/removed_background_image.png')
 
 ---
 
-## Modules Overview
+## Modules
 
 -   **`segmentation.py`**: Provides functionality to detect and segment people in images and videos.
 -   **`remove_background.py`**: A background removal tool that allows focusing solely on people, commonly known as the "cut-out" feature.
