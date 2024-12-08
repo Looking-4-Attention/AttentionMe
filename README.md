@@ -58,41 +58,25 @@ Before you begin, ensure you have the following installed:
 
 ### Steps
 
-1. Clone the repository:
+You can install AttentionMe from PyPI:
    ```bash
-   git clone https://github.com/Looking-4-Attention/AttentionMe.git
-   cd AttentionMe
-
-2. Install the repository:
-   ```bash
-   git clone https://github.com/Looking-4-Attention/AttentionMe.git
-   cd AttentionMe
-3. Clone the repository:
-   ```bash
-   git clone https://github.com/Looking-4-Attention/AttentionMe.git
-   cd AttentionMe
+   pip install attentionme
    ```
 
 ---
 
 ## Usage
 
-Here’s a simple example to get started with the segmentation feature. For your inforamtion, there is a Sample Usage repository in this organization.:
+Here’s a simple example to get started with the background removal feature. For your inforamtion, there is a Sample Usage repository in this organization.:
 ```bash
-from attentionme.segmentation import segment_people
-from attentionme.remove_background import remove_background
+from attentionme import *
+import cv2
 
-# Load an input image
-input_file = "example.jpg"
+image_path = 'sample_images/group1.jpg'
+image = cv2.imread(image_path)
+cv2.imwrite('image_outputs/original_image.png', image)
 
-# Segment people from the image
-segmented_image = segment_people(input_file)
-
-# Remove the background for a cleaner look
-final_image = remove_background(segmented_image)
-
-# Save the result
-final_image.save("output.jpg")
+remove_background(image_path, 'image_outputs/removed_background_image.png')
 ```
 
 ---
@@ -187,37 +171,25 @@ AttentionMe는 2024년 2학기 한양대학교 에리카캠퍼스의 오픈소�
 
 ### 설치 단계
 
-1. 저장소 클론하기:
+PyPI에서 AttentionMe를 설치하실 수 있습니다.:
    ```bash
-   git clone https://github.com/Looking-4-Attention/AttentionMe.git
-   cd AttentionMe
-   ```
-   
- 2. 저장소 설치하기:
-   ```bash
-   pip install .
+   pip install attentionme
    ```
    
    ---
 
 ## 사용법
 
-아래는 간단한 예제입니다. 더 자세한 사항은 저희 Organization 내 Sample Usage repository를 참고하시기 바랍니다. 아래는 사람 분리 기능을 시작하는 코드입니다:
+아래는 간단한 예제입니다. 더 자세한 사항은 저희 Organization 내 Sample Usage repository를 참고하시기 바랍니다. 아래는 배경 제거 기능을 시작하는 코드입니다:
 ```bash
-from attentionme.segmentation import segment_people
-from attentionme.remove_background import remove_background
+from attentionme import *
+import cv2
 
-# 입력 이미지 로드
-input_file = "example.jpg"
+image_path = 'sample_images/group1.jpg'
+image = cv2.imread(image_path)
+cv2.imwrite('image_outputs/original_image.png', image)
 
-# 사람 분리
-segmented_image = segment_people(input_file)
-
-# 배경 제거
-final_image = remove_background(segmented_image)
-
-# 결과 저장
-final_image.save("output.jpg")
+remove_background(image_path, 'image_outputs/removed_background_image.png')
 ```
 
    ---
